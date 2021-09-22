@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+:root{
+    --orange: #ffa500;
+    --gold: #ffd700;
+    --gradient:linear-gradient(90deg, var(--orange), var(--gold)); 
+}
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+
+ *::selection {
+    background: var(--gold);
+    color: #fff
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    background-color: #bbb;
+}
+
+section {
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 7.5rem; 
+}
+
+a{
+    color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 3rem;
+    border-radius: 5rem;
+    background: var(--gradient);
+    font-size: 1.7rem;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: all .3s linear
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.header{
+    background-color: #ffd700;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.header ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #ffd700;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.header ul a{
+    display: block;
+    padding: 20px;
+    border-right: 1px solid #fff;
+    text-decoration: none;
+}
+
+.header ul a:hover{
+    background-color: #ffa500;
+}
+
+
+.header .logo {
+    float: left;
+    display: block;
+    font-size: 2em;
+    padding: 10px 20px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+.header .menu .active{
+    background-color: #ffa500;
+}
+
+.header .menu-icon {
+    padding: 33px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.header .menu-icon .nav-icon {
+    background: #fff;
+    display: block;
+    height: 3px;
+    width: 22px;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+.header .menu-icon .nav-icon:before{
+    background: #fff;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    transition: all .2s ease-out;
+    top: 7px;
+}
+
+.header .menu-icon .nav-icon:after{
+    background: #fff;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    transition: all .2s ease-out;
+    top: -7px;
+}
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+    max-height: 300px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon {
+    background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+@media (max-width:12000px) {
+    htlm{
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px){
+    section {
+        padding: 0 3%;
+        padding-top: 7.5rem; 
+    }
+    .home{
+        flex-flow: column-reverse; 
+    }
+    .home .image img{
+        width:100%;
+    }
+    .home .content h1{
+        font-size: 3.6rem;
+    }
+    .home .content{
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width:48em) {
+    .header li{
+        float: left;
+    }
+    .header li a{
+        padding: 20px 30px;
+    }
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    .header .menu-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .home{
+        flex-flow: column-reverse; 
+    }
+    .home .image img{
+        display: flex;
+        height: 75%;
+        width: 75%;
+        justify-self: center;
+        margin-left: -15%;
+    }
+    .home .content h1{
+        font-size: 3.6rem;
+        text-align: center;
+    }
+    .home .content {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .home .content .btn {
+        justify-content: center;
+    }
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("graphicbackground.jpg");
+    background-size: cover;
+    background-position: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.home .image img {
+    padding-left: 30%;
+    height: -40vw;
+    width: -40vw;
+    animation: float 3s linear infinite;
+    
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0rem);
+    }
+    50% {
+        transform: translateY(-3.5rem);
+    }
+}
+
+.home .content h1{
+    font-size: 6.5rem;
+    color: white;
+    padding: 1rem 0;
+    margin-bottom: -3rem;
+    text-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 1);
+}
+
+.home .content p{
+    font-size: 3rem;
+    color: #333;
+    padding: 1rem 0;
+}
+
+
+
+  
